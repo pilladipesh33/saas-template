@@ -17,14 +17,12 @@ export default function Navbar() {
           <div className="">
             <Image src={logoImage} alt="Logo-svg" className="h-9 w-auto" />
           </div>
-          <div className="hidden lg:block">
-            <div className="flex gap-x-6 justify-center items-center">
-              {navLinks.map((item, index) => (
-                <div key={index}>
-                  <a href={item.href}>{item.label}</a>
-                </div>
-              ))}
-            </div>
+          <div className="lg:flex gap-x-6 justify-center items-center hidden">
+            {navLinks.map((item, index) => (
+              <div key={index}>
+                <a href={item.href}>{item.label}</a>
+              </div>
+            ))}
           </div>
           <div className="flex justify-end space-x-4">
             <svg
@@ -45,11 +43,11 @@ export default function Navbar() {
             </svg>
             <Button
               variant={"outline"}
-              className="font-medium bg-transparent rounded-full"
+              className="hidden md:inline-flex font-medium bg-foreground rounded-full"
             >
               Log In
             </Button>
-            <Button className="bg-lime-400 text-neutral-950 rounded-full font-medium">
+            <Button className="bg-primary text-secondary rounded-full font-medium hidden md:inline-flex">
               Sign Up
             </Button>
           </div>
