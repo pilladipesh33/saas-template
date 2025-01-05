@@ -1,7 +1,6 @@
-"use-client";
-
 import Image from "next/image";
 import logoImage from "../assets/images/logo.svg";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -12,13 +11,22 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <section className="py-4">
-      <div className="container">
-        <div className="flex">
+    <section className="py-4 lg:py-8">
+      <div className="container max-w-5xl">
+        <div className="grid grid-cols-2 lg:grid-cols-3 border border-white/15 rounded-full p-2 items-center px-4 md:pr-2">
           <div className="">
-            <Image src={logoImage} alt="Logo-svg" className="h-9 w-auto ml-2" />
+            <Image src={logoImage} alt="Logo-svg" className="h-9 w-auto" />
           </div>
-          <div>
+          <div className="hidden lg:block">
+            <div className="flex gap-x-6 justify-center items-center">
+              {navLinks.map((item, index) => (
+                <div key={index}>
+                  <a href={item.href}>{item.label}</a>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-end space-x-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -29,12 +37,21 @@ export default function Navbar() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="feather feather-menu"
+              className="feather feather-menu md:hidden block"
             >
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
+            <Button
+              variant={"outline"}
+              className="font-medium bg-transparent rounded-full"
+            >
+              Log In
+            </Button>
+            <Button className="bg-lime-400 text-neutral-950 rounded-full font-medium">
+              Sign Up
+            </Button>
           </div>
         </div>
       </div>
