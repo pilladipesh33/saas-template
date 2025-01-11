@@ -90,8 +90,15 @@ export default function Navbar() {
               {isOpen && (
                 <motion.div
                   initial={{ height: 0 }}
-                  animate={{ height: "auto" }}
-                  exit={{ height: 0 }}
+                  animate={{
+                    height: "auto",
+                    transition: {
+                      type: "tween",
+                      stiffness: 200,
+                      damping: 10,
+                    },
+                  }}
+                  exit={{ height: 0, filter: "blur(10px)" }}
                   className="overflow-hidden"
                 >
                   <div className="flex flex-col items-center transition gap-4 py-4 ">
