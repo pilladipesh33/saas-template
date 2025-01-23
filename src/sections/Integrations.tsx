@@ -9,66 +9,67 @@ import relumeIcon from "@/assets/images/relume-logo.svg";
 import githubIcon from "@/assets/images/github-logo.svg";
 
 const integrations = [
-  {
-    name: "Figma",
-    icon: figmaIcon,
-    description: "Figma is a collaborative interface design tool.",
-  },
-  {
-    name: "Notion",
-    icon: notionIcon,
-    description: "Notion is an all-in-one workspace for notes and docs.",
-  },
-  {
-    name: "Slack",
-    icon: slackIcon,
-    description: "Slack is a powerful team communication platform.",
-  },
-  {
-    name: "Relume",
-    icon: relumeIcon,
-    description: "Relume is a no-code website builder and design system.",
-  },
-  {
-    name: "Framer",
-    icon: framerIcon,
-    description: "Framer is a professional website prototyping tool.",
-  },
-  {
-    name: "GitHub",
-    icon: githubIcon,
-    description: "GitHub is the leading platform for code collaboration.",
-  },
+	{
+		name: "Figma",
+		icon: figmaIcon,
+		description: "Figma is a collaborative interface design tool.",
+	},
+	{
+		name: "Notion",
+		icon: notionIcon,
+		description: "Notion is an all-in-one workspace for notes and docs.",
+	},
+	{
+		name: "Slack",
+		icon: slackIcon,
+		description: "Slack is a powerful team communication platform.",
+	},
+	{
+		name: "Relume",
+		icon: relumeIcon,
+		description: "Relume is a no-code website builder and design system.",
+	},
+	{
+		name: "Framer",
+		icon: framerIcon,
+		description: "Framer is a professional website prototyping tool.",
+	},
+	{
+		name: "GitHub",
+		icon: githubIcon,
+		description: "GitHub is the leading platform for code collaboration.",
+	},
 ];
 
 export type IntegrationType = typeof integrations;
 
 export default function Integrations() {
-  return (
-    <section className="py-2overflow-hidden">
-      <div className="container">
-        <div className="grid lg:grid-cols-2 items-center lg:gap-16">
-          <div>
-            <Tag>Integrations</Tag>
-            <h2 className="text-6xl lg:text-7xl font-medium mt-6">
-              Plays well with <span className="text-primary">others</span>
-            </h2>
-            <p className="text-accent/50 mt-4 text-lg lg:text-2xl">
-              Layers seamlessly connects with your favourite tools, making it
-              easy to plug inot any workflow and collaborate across platforms.
-            </p>
-          </div>
-          <div>
-            <div className="mt-8 h-[400px] lg:h-[800px] lg:mt-0 grid md:grid-cols-2 gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
-              <IntegrationColumn integrations={integrations} />
-              <IntegrationColumn
-                integrations={integrations.slice().reverse()}
-                className="hidden md:flex"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+	return (
+		<section className="py-2overflow-hidden">
+			<div className="container">
+				<div className="grid lg:grid-cols-2 items-center lg:gap-16">
+					<div>
+						<Tag>Integrations</Tag>
+						<h2 className="text-6xl lg:text-7xl font-medium mt-6">
+							Plays well with <span className="text-primary">others</span>
+						</h2>
+						<p className="text-accent/50 mt-4 text-lg lg:text-2xl">
+							Layers seamlessly connects with your favourite tools, making it
+							easy to plug inot any workflow and collaborate across platforms.
+						</p>
+					</div>
+					<div>
+						<div className="mt-8 h-[400px] lg:h-[800px] lg:mt-0 grid md:grid-cols-2 gap-4 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]">
+							<IntegrationColumn integrations={integrations} />
+							<IntegrationColumn
+								reverse
+								integrations={integrations.slice().reverse()}
+								className="hidden md:flex"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }
